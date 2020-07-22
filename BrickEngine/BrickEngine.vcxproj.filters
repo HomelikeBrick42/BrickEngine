@@ -4,6 +4,9 @@
     <Filter Include="BrickEngine">
       <UniqueIdentifier>{86F71014-F2AC-8909-7BA1-83E0E755800D}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BrickEngine\Events">
+      <UniqueIdentifier>{AA3060DC-9614-2132-FF74-1B85EB770BB4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BrickEngine.h" />
@@ -16,9 +19,15 @@
     <ClInclude Include="src\BrickEngine\EntryPoint.h">
       <Filter>BrickEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\BrickEngine\Events\Event.h">
+      <Filter>BrickEngine\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\BrickEngine\Log.h">
       <Filter>BrickEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\BrickEngine\Events\KeyEvent.h" />
+    <ClInclude Include="src\BrickEngine\Events\MouseEvent.h" />
+    <ClInclude Include="src\BrickEngine\Events\ApplicationEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BrickEngine\Application.cpp">
