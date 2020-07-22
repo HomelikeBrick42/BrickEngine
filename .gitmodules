@@ -1,0 +1,3 @@
+[submodule "BrickEngine/vendor/spdlog"]
+	path = BrickEngine/vendor/spdlog
+	url = https://github.com/gabime/spdlog.git
