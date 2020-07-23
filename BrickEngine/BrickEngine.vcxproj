@@ -84,6 +84,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -109,6 +110,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -135,6 +137,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -157,18 +160,22 @@
     <ClInclude Include="src\BrickEngine\Events\Event.h" />
     <ClInclude Include="src\BrickEngine\Events\KeyEvent.h" />
     <ClInclude Include="src\BrickEngine\Events\MouseEvent.h" />
+    <ClInclude Include="src\BrickEngine\Layer.h" />
+    <ClInclude Include="src\BrickEngine\LayerStack.h" />
     <ClInclude Include="src\BrickEngine\Log.h" />
-    <ClInclude Include="src\brickenginepch.h" />
     <ClInclude Include="src\BrickEngine\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\BrickEngine\Window.h" />
+    <ClInclude Include="src\brickenginepch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BrickEngine\Application.cpp" />
+    <ClCompile Include="src\BrickEngine\Layer.cpp" />
+    <ClCompile Include="src\BrickEngine\LayerStack.cpp" />
     <ClCompile Include="src\BrickEngine\Log.cpp" />
+    <ClCompile Include="src\BrickEngine\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\brickenginepch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\BrickEngine\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
