@@ -1,7 +1,7 @@
 #pragma once
 
 #include "BrickEngine/Core.h"
-#include <string>
+#include "brickenginepch.h"
 
 namespace BrickEngine {
 
@@ -30,7 +30,7 @@ namespace BrickEngine {
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
-	class Event
+	class BRICKENGINE_API Event
 	{
 	public:
 		virtual ~Event() = default;
@@ -48,7 +48,7 @@ namespace BrickEngine {
 		}
 	};
 
-	class EventDispatcher
+	class BRICKENGINE_API EventDispatcher
 	{
 	public:
 		EventDispatcher(Event& event)

@@ -10,4 +10,12 @@
 	#error BrickEngine Only Supports Windows!
 #endif
 
+#ifdef BRICKENGINE_ENABLE_ASSERTS
+	#define BRICKENGINE_ASSERT(x, ...) { if(!(x)) { BRICKENGINE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+	#define BRICKENGINE_CORE_ASSERT(x, ...) { if(!(x)) { BRICKENGINE_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+#else
+	#define BRICKENGINE_ASSERT(x, ...)
+	#define BRICKENGINE_CORE_ASSERT(x, ...)
+#endif
+
 #define BIT(x) (1 << x)

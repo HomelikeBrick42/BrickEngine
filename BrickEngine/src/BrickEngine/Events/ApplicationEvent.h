@@ -1,18 +1,17 @@
 #pragma once
 
 #include "BrickEngine/Events/Event.h"
-#include <sstream>
 
 namespace BrickEngine {
 
-	class WindowResizeEvent : public Event
+	class BRICKENGINE_API WindowResizeEvent : public Event
 	{
 	public:
 		WindowResizeEvent(unsigned int width, unsigned int height)
 			: m_Width(width), m_Height(height) {}
 
-		unsigned int GetWidth() const { return m_Width; }
-		unsigned int GetHeight() const { return m_Height; }
+		uint32_t GetWidth() const { return m_Width; }
+		uint32_t GetHeight() const { return m_Height; }
 
 		std::string ToString() const override
 		{
@@ -24,10 +23,10 @@ namespace BrickEngine {
 		EVENT_CLASS_TYPE(WindowResize)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	private:
-		unsigned int m_Width, m_Height;
+		uint32_t m_Width, m_Height;
 	};
 
-	class WindowCloseEvent : public Event
+	class BRICKENGINE_API WindowCloseEvent : public Event
 	{
 	public:
 		WindowCloseEvent() = default;
@@ -36,7 +35,7 @@ namespace BrickEngine {
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class AppTickEvent : public Event
+	class BRICKENGINE_API AppTickEvent : public Event
 	{
 	public:
 		AppTickEvent() = default;
@@ -45,7 +44,7 @@ namespace BrickEngine {
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class AppUpdateEvent : public Event
+	class BRICKENGINE_API AppUpdateEvent : public Event
 	{
 	public:
 		AppUpdateEvent() = default;
@@ -54,7 +53,7 @@ namespace BrickEngine {
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class AppRenderEvent : public Event
+	class BRICKENGINE_API AppRenderEvent : public Event
 	{
 	public:
 		AppRenderEvent() = default;

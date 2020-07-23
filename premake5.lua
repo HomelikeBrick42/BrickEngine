@@ -10,6 +10,11 @@ workspace "BrickEngine"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "BrickEngine/vendor/GLFW/include"
+
+include "BrickEngine/vendor/GLFW"
+
 project "BrickEngine"
 	location "BrickEngine"
 	kind "SharedLib"
@@ -17,6 +22,9 @@ project "BrickEngine"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "brickenginepch.h"
+	pchsource "BrickEngine/src/brickenginepch.cpp"
 
 	files
 	{
@@ -27,7 +35,14 @@ project "BrickEngine"
 	includedirs
 	{
 		"%{prj.name}/vendor/spdlog/include",
-		"%{prj.name}/src"
+		"%{prj.name}/src",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

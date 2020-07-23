@@ -1,11 +1,10 @@
 #pragma once
 
 #include "BrickEngine/Events/Event.h"
-#include <sstream>
 
 namespace BrickEngine {
 
-	class MouseMovedEvent : public Event
+	class BRICKENGINE_API MouseMovedEvent : public Event
 	{
 	public:
 		MouseMovedEvent(float x, float y)
@@ -27,7 +26,7 @@ namespace BrickEngine {
 		float m_MouseX, m_MouseY;
 	};
 
-	class MouseScrolledEvent : public Event
+	class BRICKENGINE_API MouseScrolledEvent : public Event
 	{
 	public:
 		MouseScrolledEvent(float xOffset, float yOffset)
@@ -39,7 +38,7 @@ namespace BrickEngine {
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "MouseScrolledEvent: " << GetXOffset() << ", " << GetYOffset();
+			ss << "MouseScrolledEvent: " << m_XOffset << ", " << m_YOffset;
 			return ss.str();
 		}
 
@@ -49,7 +48,7 @@ namespace BrickEngine {
 		float m_XOffset, m_YOffset;
 	};
 
-	class MouseButtonEvent : public Event
+	class BRICKENGINE_API MouseButtonEvent : public Event
 	{
 	public:
 		inline int GetMouseButton() const { return m_Button; }
@@ -62,7 +61,7 @@ namespace BrickEngine {
 		int m_Button;
 	};
 
-	class MouseButtonPressedEvent : public MouseButtonEvent
+	class BRICKENGINE_API MouseButtonPressedEvent : public MouseButtonEvent
 	{
 	public:
 		MouseButtonPressedEvent(int button)
@@ -78,7 +77,7 @@ namespace BrickEngine {
 		EVENT_CLASS_TYPE(MouseButtonPressed)
 	};
 
-	class MouseButtonReleasedEvent : public MouseButtonEvent
+	class BRICKENGINE_API MouseButtonReleasedEvent : public MouseButtonEvent
 	{
 	public:
 		MouseButtonReleasedEvent(int button)

@@ -1,11 +1,10 @@
 #pragma once
 
 #include "BrickEngine/Events/Event.h"
-#include <sstream>
 
 namespace BrickEngine {
 
-	class KeyEvent : public Event
+	class BRICKENGINE_API KeyEvent : public Event
 	{
 	public:
 		int GetKeyCode() const { return m_KeyCode; }
@@ -18,7 +17,7 @@ namespace BrickEngine {
 		int m_KeyCode;
 	};
 
-	class KeyPressedEvent : public KeyEvent
+	class BRICKENGINE_API KeyPressedEvent : public KeyEvent
 	{
 	public:
 		KeyPressedEvent(int keycode, int repeatCount)
@@ -38,7 +37,7 @@ namespace BrickEngine {
 		int m_RepeatCount;
 	};
 
-	class KeyReleasedEvent : public KeyEvent
+	class BRICKENGINE_API KeyReleasedEvent : public KeyEvent
 	{
 	public:
 		KeyReleasedEvent(int keycode)
@@ -54,7 +53,7 @@ namespace BrickEngine {
 		EVENT_CLASS_TYPE(KeyReleased)
 	};
 
-	class KeyTypedEvent : public KeyEvent
+	class BRICKENGINE_API KeyTypedEvent : public KeyEvent
 	{
 	public:
 		KeyTypedEvent(int keycode)
