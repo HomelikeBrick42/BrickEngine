@@ -10,12 +10,12 @@ public:
 
 	void OnUpdate() override
 	{
-		//BRICKENGINE_INFO("ExampleLayer::Update");
+
 	}
 
 	void OnEvent(BrickEngine::Event& event) override
 	{
-		BRICKENGINE_TRACE("{0}", event);
+		
 	}
 
 };

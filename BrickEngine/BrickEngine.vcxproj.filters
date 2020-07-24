@@ -49,6 +49,9 @@
     <ClInclude Include="src\BrickEngine\Input.h">
       <Filter>BrickEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\BrickEngine\KeyCodes.h">
+      <Filter>BrickEngine</Filter>
+    </ClInclude>
     <ClInclude Include="src\BrickEngine\Layer.h">
       <Filter>BrickEngine</Filter>
     </ClInclude>
@@ -56,6 +59,9 @@
       <Filter>BrickEngine</Filter>
     </ClInclude>
     <ClInclude Include="src\BrickEngine\Log.h">
+      <Filter>BrickEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BrickEngine\MouseButtonCodes.h">
       <Filter>BrickEngine</Filter>
     </ClInclude>
     <ClInclude Include="src\BrickEngine\Platform\OpenGL\ImGuiOpenGLRenderer.h">

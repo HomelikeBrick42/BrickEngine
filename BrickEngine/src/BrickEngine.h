@@ -6,6 +6,10 @@
 #include "BrickEngine/Layer.h"
 #include "BrickEngine/Log.h"
 
+#include "BrickEngine/Input.h"
+#include "BrickEngine/KeyCodes.h"
+#include "BrickEngine/MouseButtonCodes.h"
+
 #include "BrickEngine/ImGui/ImGuiLayer.h"
 
 // ---Entry Point----------------------------------------

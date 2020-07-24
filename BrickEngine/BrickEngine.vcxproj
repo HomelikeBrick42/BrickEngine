@@ -159,9 +159,11 @@
     <ClInclude Include="src\BrickEngine\Events\MouseEvent.h" />
     <ClInclude Include="src\BrickEngine\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\BrickEngine\Input.h" />
+    <ClInclude Include="src\BrickEngine\KeyCodes.h" />
     <ClInclude Include="src\BrickEngine\Layer.h" />
     <ClInclude Include="src\BrickEngine\LayerStack.h" />
     <ClInclude Include="src\BrickEngine\Log.h" />
+    <ClInclude Include="src\BrickEngine\MouseButtonCodes.h" />
     <ClInclude Include="src\BrickEngine\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\BrickEngine\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\BrickEngine\Platform\Windows\WindowsWindow.h" />
