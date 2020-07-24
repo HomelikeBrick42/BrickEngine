@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>brickenginepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>BRICKENGINE_PLATFORM_WINDOWS;BRICKENGINE_BUILD_DLL;GLFW_INCLUDE_NONE;BRICKENGINE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -103,7 +103,7 @@
       <PrecompiledHeaderFile>brickenginepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>BRICKENGINE_PLATFORM_WINDOWS;BRICKENGINE_BUILD_DLL;GLFW_INCLUDE_NONE;BRICKENGINE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -130,7 +130,7 @@
       <PrecompiledHeaderFile>brickenginepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>BRICKENGINE_PLATFORM_WINDOWS;BRICKENGINE_BUILD_DLL;GLFW_INCLUDE_NONE;BRICKENGINE_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -160,18 +160,22 @@
     <ClInclude Include="src\BrickEngine\Events\Event.h" />
     <ClInclude Include="src\BrickEngine\Events\KeyEvent.h" />
     <ClInclude Include="src\BrickEngine\Events\MouseEvent.h" />
+    <ClInclude Include="src\BrickEngine\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\BrickEngine\Layer.h" />
     <ClInclude Include="src\BrickEngine\LayerStack.h" />
     <ClInclude Include="src\BrickEngine\Log.h" />
+    <ClInclude Include="src\BrickEngine\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\BrickEngine\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\BrickEngine\Window.h" />
     <ClInclude Include="src\brickenginepch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BrickEngine\Application.cpp" />
+    <ClCompile Include="src\BrickEngine\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\BrickEngine\Layer.cpp" />
     <ClCompile Include="src\BrickEngine\LayerStack.cpp" />
     <ClCompile Include="src\BrickEngine\Log.cpp" />
+    <ClCompile Include="src\BrickEngine\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="src\BrickEngine\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\brickenginepch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -183,6 +187,9 @@
     </ProjectReference>
     <ProjectReference Include="vendor\Glad\Glad.vcxproj">
       <Project>{BDD6857C-A90D-870D-52FA-6C103E10030F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\imgui\ImGui.vcxproj">
+      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

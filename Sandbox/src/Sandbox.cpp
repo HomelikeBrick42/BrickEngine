@@ -10,7 +10,7 @@ public:
 
 	void OnUpdate() override
 	{
-		BRICKENGINE_INFO("ExampleLayer::Update");
+		//BRICKENGINE_INFO("ExampleLayer::Update");
 	}
 
 	void OnEvent(BrickEngine::Event& event) override
@@ -26,6 +26,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
+		PushOverlay(new BrickEngine::ImGuiLayer());
 	}
 
 	~Sandbox()

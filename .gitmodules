@@ -4,3 +4,6 @@
 [submodule "BrickEngine/vendor/GLFW"]
 	path = BrickEngine/vendor/GLFW
 	url = https://github.com/TheCherno/GLFW
+[submodule "BrickEngine/vendor/imgui"]
+	path = BrickEngine/vendor/imgui
+	url = https://github.com/TheCherno/imgui

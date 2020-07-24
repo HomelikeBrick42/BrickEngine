@@ -7,8 +7,14 @@
     <Filter Include="BrickEngine\Events">
       <UniqueIdentifier>{AA3060DC-9614-2132-FF74-1B85EB770BB4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BrickEngine\ImGui">
+      <UniqueIdentifier>{3079B20E-9C8F-B0A4-E506-3CC6515C812C}</UniqueIdentifier>
+    </Filter>
     <Filter Include="BrickEngine\Platform">
       <UniqueIdentifier>{9A0A4D91-8699-D65A-2FB8-EA551B26E700}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BrickEngine\Platform\OpenGL">
+      <UniqueIdentifier>{8E82F40C-FA8F-22F3-8376-1EDEEF82EEA9}</UniqueIdentifier>
     </Filter>
     <Filter Include="BrickEngine\Platform\Windows">
       <UniqueIdentifier>{D4AEA003-C069-90AF-6921-09FA55BBDA3F}</UniqueIdentifier>
@@ -37,6 +43,9 @@
     <ClInclude Include="src\BrickEngine\Events\MouseEvent.h">
       <Filter>BrickEngine\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\BrickEngine\ImGui\ImGuiLayer.h">
+      <Filter>BrickEngine\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\BrickEngine\Layer.h">
       <Filter>BrickEngine</Filter>
     </ClInclude>
@@ -45,6 +54,9 @@
     </ClInclude>
     <ClInclude Include="src\BrickEngine\Log.h">
       <Filter>BrickEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BrickEngine\Platform\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>BrickEngine\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\BrickEngine\Platform\Windows\WindowsWindow.h">
       <Filter>BrickEngine\Platform\Windows</Filter>
@@ -58,6 +70,9 @@
     <ClCompile Include="src\BrickEngine\Application.cpp">
       <Filter>BrickEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\BrickEngine\ImGui\ImGuiLayer.cpp">
+      <Filter>BrickEngine\ImGui</Filter>
+    </ClCompile>
     <ClCompile Include="src\BrickEngine\Layer.cpp">
       <Filter>BrickEngine</Filter>
     </ClCompile>
@@ -66,6 +81,9 @@
     </ClCompile>
     <ClCompile Include="src\BrickEngine\Log.cpp">
       <Filter>BrickEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BrickEngine\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>BrickEngine\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\BrickEngine\Platform\Windows\WindowsWindow.cpp">
       <Filter>BrickEngine\Platform\Windows</Filter>
