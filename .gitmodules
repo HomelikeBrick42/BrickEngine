@@ -7,3 +7,6 @@
 [submodule "BrickEngine/vendor/imgui"]
 	path = BrickEngine/vendor/imgui
 	url = https://github.com/TheCherno/imgui
+[submodule "BrickEngine/vendor/glm"]
+	path = BrickEngine/vendor/glm
+	url = https://github.com/g-truc/glm.git

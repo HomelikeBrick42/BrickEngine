@@ -15,6 +15,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "BrickEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "BrickEngine/vendor/Glad/include"
 IncludeDir["ImGui"] = "BrickEngine/vendor/imgui"
+IncludeDir["glm"] = "BrickEngine/vendor/glm"
 
 group "Dependencies"
 	include "BrickEngine/vendor/GLFW"
@@ -37,7 +38,9 @@ project "BrickEngine"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -46,7 +49,8 @@ project "BrickEngine"
 		"%{prj.name}/src",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -106,7 +110,8 @@ project "Sandbox"
 	includedirs
 	{
 		"BrickEngine/vendor/spdlog/include",
-		"BrickEngine/src"
+		"BrickEngine/src",
+		"%{IncludeDir.glm}"
 	}
 
 	links
