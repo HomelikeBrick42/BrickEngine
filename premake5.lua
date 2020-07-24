@@ -111,6 +111,7 @@ project "Sandbox"
 	{
 		"BrickEngine/vendor/spdlog/include",
 		"BrickEngine/src",
+		"BrickEngine/vendor",
 		"%{IncludeDir.glm}"
 	}
 

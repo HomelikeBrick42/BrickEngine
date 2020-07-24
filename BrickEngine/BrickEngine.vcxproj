@@ -164,7 +164,6 @@
     <ClInclude Include="src\BrickEngine\LayerStack.h" />
     <ClInclude Include="src\BrickEngine\Log.h" />
     <ClInclude Include="src\BrickEngine\MouseButtonCodes.h" />
-    <ClInclude Include="src\BrickEngine\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\BrickEngine\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\BrickEngine\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\BrickEngine\Window.h" />
@@ -580,11 +579,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BrickEngine\Application.cpp" />
+    <ClCompile Include="src\BrickEngine\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\BrickEngine\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\BrickEngine\Layer.cpp" />
     <ClCompile Include="src\BrickEngine\LayerStack.cpp" />
     <ClCompile Include="src\BrickEngine\Log.cpp" />
-    <ClCompile Include="src\BrickEngine\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="src\BrickEngine\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\BrickEngine\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\brickenginepch.cpp">

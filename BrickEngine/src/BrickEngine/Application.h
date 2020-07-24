@@ -5,6 +5,8 @@
 #include "BrickEngine/Core.h"
 #include "BrickEngine/Events/ApplicationEvent.h"
 
+#include "BrickEngine/ImGui/ImGuiLayer.h"
+
 namespace BrickEngine {
 
 	class BRICKENGINE_API Application
@@ -26,6 +28,7 @@ namespace BrickEngine {
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 	private:

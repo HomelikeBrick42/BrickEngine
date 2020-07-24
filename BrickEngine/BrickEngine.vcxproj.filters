@@ -16,9 +16,6 @@
     <Filter Include="src\BrickEngine\Platform">
       <UniqueIdentifier>{11388C9B-FD5C-DB1B-26A8-C0AB122CDA39}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\BrickEngine\Platform\OpenGL">
-      <UniqueIdentifier>{2504599F-91E7-67DF-9AEA-951B064D2E30}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\BrickEngine\Platform\Windows">
       <UniqueIdentifier>{4B6395E2-37B4-8024-6018-6FE64CC8138E}</UniqueIdentifier>
     </Filter>
@@ -89,9 +86,6 @@
     </ClInclude>
     <ClInclude Include="src\BrickEngine\MouseButtonCodes.h">
       <Filter>src\BrickEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\BrickEngine\Platform\OpenGL\ImGuiOpenGLRenderer.h">
-      <Filter>src\BrickEngine\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\BrickEngine\Platform\Windows\WindowsInput.h">
       <Filter>src\BrickEngine\Platform\Windows</Filter>
@@ -1334,6 +1328,9 @@
     <ClCompile Include="src\BrickEngine\Application.cpp">
       <Filter>src\BrickEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\BrickEngine\ImGui\ImGuiBuild.cpp">
+      <Filter>src\BrickEngine\ImGui</Filter>
+    </ClCompile>
     <ClCompile Include="src\BrickEngine\ImGui\ImGuiLayer.cpp">
       <Filter>src\BrickEngine\ImGui</Filter>
     </ClCompile>
@@ -1345,9 +1342,6 @@
     </ClCompile>
     <ClCompile Include="src\BrickEngine\Log.cpp">
       <Filter>src\BrickEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BrickEngine\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
-      <Filter>src\BrickEngine\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\BrickEngine\Platform\Windows\WindowsInput.cpp">
       <Filter>src\BrickEngine\Platform\Windows</Filter>

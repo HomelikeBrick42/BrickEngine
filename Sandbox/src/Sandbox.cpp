@@ -1,5 +1,7 @@
 #include <BrickEngine.h>
 
+#include "imgui/imgui.h"
+
 class ExampleLayer : public BrickEngine::Layer
 {
 public:
@@ -8,12 +10,19 @@ public:
 	{
 	}
 
-	void OnUpdate() override
+	virtual void OnUpdate() override
 	{
 
 	}
 
-	void OnEvent(BrickEngine::Event& event) override
+	virtual void OnImGuiRender() override
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello World!");
+		ImGui::End();
+	}
+
+	virtual void OnEvent(BrickEngine::Event& event) override
 	{
 		
 	}
@@ -26,7 +35,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new BrickEngine::ImGuiLayer());
 	}
 
 	~Sandbox()
