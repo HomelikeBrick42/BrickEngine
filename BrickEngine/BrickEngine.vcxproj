@@ -83,8 +83,7 @@
       <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -94,7 +93,7 @@
       <ImportLibrary>..\bin\Debug-windows-x86_64\BrickEngine\BrickEngine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Debug-windows-x86_64\BrickEngine\BrickEngine.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\BrickEngine\BrickEngine.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\BrickEngine\BrickEngine.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Debug-windows-x86_64\BrickEngine\BrickEngine.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\BrickEngine\BrickEngine.dll "..\bin\Debug-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\BrickEngine\BrickEngine.dll "..\bin\Debug-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -109,8 +108,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -121,7 +119,7 @@
       <ImportLibrary>..\bin\Release-windows-x86_64\BrickEngine\BrickEngine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Release-windows-x86_64\BrickEngine\BrickEngine.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\BrickEngine\BrickEngine.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\BrickEngine\BrickEngine.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Release-windows-x86_64\BrickEngine\BrickEngine.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\BrickEngine\BrickEngine.dll "..\bin\Release-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\BrickEngine\BrickEngine.dll "..\bin\Release-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -136,8 +134,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -148,7 +145,7 @@
       <ImportLibrary>..\bin\Dist-windows-x86_64\BrickEngine\BrickEngine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Dist-windows-x86_64\BrickEngine\BrickEngine.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\BrickEngine\BrickEngine.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\BrickEngine\BrickEngine.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Dist-windows-x86_64\BrickEngine\BrickEngine.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\BrickEngine\BrickEngine.dll "..\bin\Dist-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\BrickEngine\BrickEngine.dll "..\bin\Dist-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -161,10 +158,12 @@
     <ClInclude Include="src\BrickEngine\Events\KeyEvent.h" />
     <ClInclude Include="src\BrickEngine\Events\MouseEvent.h" />
     <ClInclude Include="src\BrickEngine\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\BrickEngine\Input.h" />
     <ClInclude Include="src\BrickEngine\Layer.h" />
     <ClInclude Include="src\BrickEngine\LayerStack.h" />
     <ClInclude Include="src\BrickEngine\Log.h" />
     <ClInclude Include="src\BrickEngine\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\BrickEngine\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\BrickEngine\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\BrickEngine\Window.h" />
     <ClInclude Include="src\brickenginepch.h" />
@@ -176,6 +175,7 @@
     <ClCompile Include="src\BrickEngine\LayerStack.cpp" />
     <ClCompile Include="src\BrickEngine\Log.cpp" />
     <ClCompile Include="src\BrickEngine\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\BrickEngine\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\BrickEngine\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\brickenginepch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

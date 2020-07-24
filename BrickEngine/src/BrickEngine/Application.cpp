@@ -5,6 +5,8 @@
 
 #include <glad/glad.h>
 
+#include "Input.h"
+
 namespace BrickEngine {
 
 	#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
@@ -53,7 +55,11 @@ namespace BrickEngine {
 	{
 		while (m_Running)
 		{
-			glClearColor(1, 0, 0, 1);
+			if (Input::IsMouseButtonPressed(0))
+				glClearColor(1, 0, 0, 1);
+			else
+				glClearColor(1, 0, 1, 1);
+
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			for (Layer* layer : m_LayerStack)

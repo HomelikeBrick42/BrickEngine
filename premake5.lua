@@ -1,5 +1,6 @@
 workspace "BrickEngine"
 	architecture "x64"
+	startproject "Sandbox"
 
 	configurations
 	{
@@ -15,14 +16,17 @@ IncludeDir["GLFW"] = "BrickEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "BrickEngine/vendor/Glad/include"
 IncludeDir["ImGui"] = "BrickEngine/vendor/imgui"
 
-include "BrickEngine/vendor/GLFW"
-include "BrickEngine/vendor/Glad"
-include "BrickEngine/vendor/imgui"
+group "Dependencies"
+	include "BrickEngine/vendor/GLFW"
+	include "BrickEngine/vendor/Glad"
+	include "BrickEngine/vendor/imgui"
+group ""
 
 project "BrickEngine"
 	location "BrickEngine"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "Off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -55,7 +59,6 @@ project "BrickEngine"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -67,28 +70,29 @@ project "BrickEngine"
 		
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"
 		defines "BRICKENGINE_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "BRICKENGINE_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "BRICKENGINE_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "Off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -112,7 +116,6 @@ project "Sandbox"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -122,15 +125,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "BRICKENGINE_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "BRICKENGINE_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "BRICKENGINE_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
