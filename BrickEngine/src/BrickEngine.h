@@ -6,6 +6,8 @@
 #include "BrickEngine/Layer.h"
 #include "BrickEngine/Log.h"
 
+#include "BrickEngine/Core/Timestep.h"
+
 #include "BrickEngine/Input.h"
 #include "BrickEngine/KeyCodes.h"
 #include "BrickEngine/MouseButtonCodes.h"

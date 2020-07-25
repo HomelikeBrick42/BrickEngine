@@ -1,6 +1,7 @@
 #pragma once
 
 #include "BrickEngine/Core.h"
+#include "BrickEngine/Core/Timestep.h"
 #include "BrickEngine/Events/Event.h"
 
 namespace BrickEngine {
@@ -13,7 +14,7 @@ namespace BrickEngine {
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 

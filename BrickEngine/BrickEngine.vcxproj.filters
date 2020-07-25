@@ -1335,6 +1335,7 @@
     <ClInclude Include="src\BrickEngine\Renderer\RenderCommand.h" />
     <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\BrickEngine\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\BrickEngine\Core\Timestep.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BrickEngine\Application.cpp">

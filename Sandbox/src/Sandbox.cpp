@@ -121,16 +121,16 @@ public:
 		m_BlueShader.reset(new BrickEngine::Shader(blueShaderVertexSrc, blueShaderFragmentSrc));
 	}
 
-	virtual void OnUpdate() override
+	virtual void OnUpdate(BrickEngine::Timestep ts) override
 	{
 		if (BrickEngine::Input::IsKeyPressed(BRICKENGINE_KEY_LEFT))
-			m_CameraPosition.x -= m_CameraSpeed;
+			m_CameraPosition.x -= m_CameraSpeed * ts;
 		if (BrickEngine::Input::IsKeyPressed(BRICKENGINE_KEY_RIGHT))
-			m_CameraPosition.x += m_CameraSpeed;
+			m_CameraPosition.x += m_CameraSpeed * ts;
 		if (BrickEngine::Input::IsKeyPressed(BRICKENGINE_KEY_DOWN))
-			m_CameraPosition.y -= m_CameraSpeed;
+			m_CameraPosition.y -= m_CameraSpeed * ts;
 		if (BrickEngine::Input::IsKeyPressed(BRICKENGINE_KEY_UP))
-			m_CameraPosition.y += m_CameraSpeed;
+			m_CameraPosition.y += m_CameraSpeed * ts;
 		
 
 		BrickEngine::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
@@ -165,7 +165,7 @@ private:
 	BrickEngine::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
 	float m_CameraRotation = 0.0f;
-	float m_CameraSpeed = 0.1f;
+	float m_CameraSpeed = 5.0f;
 };
 
 class Sandbox : public BrickEngine::Application

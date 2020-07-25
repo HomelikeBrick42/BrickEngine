@@ -143,6 +143,7 @@
     <ClInclude Include="src\BrickEngine.h" />
     <ClInclude Include="src\BrickEngine\Application.h" />
     <ClInclude Include="src\BrickEngine\Core.h" />
+    <ClInclude Include="src\BrickEngine\Core\Timestep.h" />
     <ClInclude Include="src\BrickEngine\EntryPoint.h" />
     <ClInclude Include="src\BrickEngine\Events\ApplicationEvent.h" />
     <ClInclude Include="src\BrickEngine\Events\Event.h" />
