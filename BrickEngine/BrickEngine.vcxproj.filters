@@ -1329,6 +1329,8 @@
     <ClInclude Include="src\BrickEngine\Renderer\Buffer.h" />
     <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\BrickEngine\Renderer\Renderer.h" />
+    <ClInclude Include="src\BrickEngine\Renderer\VertexArray.h" />
+    <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLVertexArray.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BrickEngine\Application.cpp">
@@ -1363,5 +1365,7 @@
     <ClCompile Include="src\BrickEngine\Renderer\Buffer.cpp" />
     <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\BrickEngine\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\BrickEngine\Renderer\VertexArray.cpp" />
+    <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLVertexArray.cpp" />
   </ItemGroup>
 </Project>
