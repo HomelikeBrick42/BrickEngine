@@ -7,14 +7,6 @@
 
 #include "BrickEngine/ImGui/ImGuiLayer.h"
 
-#include "BrickEngine/Renderer/Shader.h"
-
-#include "BrickEngine/Renderer/Buffer.h"
-
-#include "BrickEngine/Renderer/VertexArray.h"
-
-#include "BrickEngine/Renderer/OrthographicCamera.h"
-
 namespace BrickEngine {
 
 	class BRICKENGINE_API Application
@@ -39,14 +31,6 @@ namespace BrickEngine {
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
-
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
-
-		std::shared_ptr<Shader> m_BlueShader;
-		std::shared_ptr<VertexArray> m_SquareVA;
-
-		OrthographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};
