@@ -7,6 +7,10 @@
 
 #include "BrickEngine/ImGui/ImGuiLayer.h"
 
+#include "BrickEngine/Renderer/Shader.h"
+
+#include "BrickEngine/Renderer/Buffer.h"
+
 namespace BrickEngine {
 
 	class BRICKENGINE_API Application
@@ -31,6 +35,11 @@ namespace BrickEngine {
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
+
+		uint32_t m_VertexArray;
+		std::unique_ptr<Shader> m_Shader;
+		std::unique_ptr<VertexBuffer> m_VertexBuffer;
+		std::unique_ptr<IndexBuffer> m_IndexBuffer;
 	private:
 		static Application* s_Instance;
 	};

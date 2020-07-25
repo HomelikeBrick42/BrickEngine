@@ -1325,6 +1325,10 @@
     </ClInclude>
     <ClInclude Include="src\BrickEngine\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\BrickEngine\Renderer\Shader.h" />
+    <ClInclude Include="src\BrickEngine\Renderer\Buffer.h" />
+    <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\BrickEngine\Renderer\Renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BrickEngine\Application.cpp">
@@ -1355,5 +1359,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\BrickEngine\Renderer\Shader.cpp" />
+    <ClCompile Include="src\BrickEngine\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\BrickEngine\Renderer\Renderer.cpp" />
   </ItemGroup>
 </Project>
