@@ -11,8 +11,8 @@ namespace BrickEngine {
 	{
 		switch (Renderer::GetAPI())
 		{
-			case RendererAPI::None:		BRICKENGINE_CORE_ASSERT(false, "Renderer::None is Currently not supported!"); return nullptr;
-			case RendererAPI::OpenGL:	return new OpenGLVertexArray();
+			case RendererAPI::API::None:		BRICKENGINE_CORE_ASSERT(false, "Renderer::None is Currently not supported!"); return nullptr;
+			case RendererAPI::API::OpenGL:	return new OpenGLVertexArray();
 		}
 
 		BRICKENGINE_CORE_ASSERT(false, "Unknown RendererAPI!");

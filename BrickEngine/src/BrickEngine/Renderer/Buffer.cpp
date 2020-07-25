@@ -13,8 +13,8 @@ namespace BrickEngine {
 	{
 		switch (Renderer::GetAPI())
 		{
-			case RendererAPI::None:		BRICKENGINE_CORE_ASSERT(false, "Renderer::None is Currently not supported!"); return nullptr; break;
-			case RendererAPI::OpenGL:	return new OpenGLVertexBuffer(vertices, size); break;
+			case RendererAPI::API::None:		BRICKENGINE_CORE_ASSERT(false, "Renderer::None is Currently not supported!"); return nullptr; break;
+			case RendererAPI::API::OpenGL:	return new OpenGLVertexBuffer(vertices, size); break;
 		}
 
 		BRICKENGINE_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -25,8 +25,8 @@ namespace BrickEngine {
 	{
 		switch (Renderer::GetAPI())
 		{
-			case RendererAPI::None:		BRICKENGINE_CORE_ASSERT(false, "Renderer::None is Currently not supported!"); return nullptr; break;
-			case RendererAPI::OpenGL:	return new OpenGLIndexBuffer(indices, count); break;
+			case RendererAPI::API::None:		BRICKENGINE_CORE_ASSERT(false, "Renderer::None is Currently not supported!"); return nullptr; break;
+			case RendererAPI::API::OpenGL:	return new OpenGLIndexBuffer(indices, count); break;
 		}
 
 		BRICKENGINE_CORE_ASSERT(false, "Unknown RendererAPI!");
