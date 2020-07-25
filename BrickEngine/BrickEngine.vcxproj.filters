@@ -1334,6 +1334,7 @@
     <ClInclude Include="src\BrickEngine\Renderer\RendererAPI.h" />
     <ClInclude Include="src\BrickEngine\Renderer\RenderCommand.h" />
     <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLRendererAPI.h" />
+    <ClInclude Include="src\BrickEngine\Renderer\OrthographicCamera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BrickEngine\Application.cpp">
@@ -1373,5 +1374,6 @@
     <ClCompile Include="src\BrickEngine\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\BrickEngine\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="src\BrickEngine\Renderer\OrthographicCamera.cpp" />
   </ItemGroup>
 </Project>

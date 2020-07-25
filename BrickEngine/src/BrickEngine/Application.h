@@ -13,6 +13,8 @@
 
 #include "BrickEngine/Renderer/VertexArray.h"
 
+#include "BrickEngine/Renderer/OrthographicCamera.h"
+
 namespace BrickEngine {
 
 	class BRICKENGINE_API Application
@@ -43,6 +45,8 @@ namespace BrickEngine {
 
 		std::shared_ptr<Shader> m_BlueShader;
 		std::shared_ptr<VertexArray> m_SquareVA;
+
+		OrthographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};

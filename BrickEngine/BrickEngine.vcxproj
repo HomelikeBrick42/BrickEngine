@@ -163,6 +163,7 @@
     <ClInclude Include="src\BrickEngine\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\BrickEngine\Renderer\Buffer.h" />
     <ClInclude Include="src\BrickEngine\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\BrickEngine\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\BrickEngine\Renderer\RenderCommand.h" />
     <ClInclude Include="src\BrickEngine\Renderer\Renderer.h" />
     <ClInclude Include="src\BrickEngine\Renderer\RendererAPI.h" />
@@ -596,6 +597,7 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\BrickEngine\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\BrickEngine\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\BrickEngine\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\BrickEngine\Renderer\Renderer.cpp" />
     <ClCompile Include="src\BrickEngine\Renderer\RendererAPI.cpp" />
