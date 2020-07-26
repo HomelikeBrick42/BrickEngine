@@ -159,6 +159,7 @@
     <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLRendererAPI.h" />
+    <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLShader.h" />
     <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\BrickEngine\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\BrickEngine\Platform\Windows\WindowsWindow.h" />
@@ -591,6 +592,7 @@
     <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLShader.cpp" />
     <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\BrickEngine\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\BrickEngine\Platform\Windows\WindowsWindow.cpp" />
