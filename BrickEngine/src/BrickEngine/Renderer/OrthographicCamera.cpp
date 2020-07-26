@@ -1,8 +1,6 @@
 #include "brickenginepch.h"
 #include "OrthographicCamera.h"
 
-#include <glm/gtc/matrix_transform.hpp>
-
 namespace BrickEngine {
 
 	OrthographicCamera::OrthographicCamera(float left, float right, float bottom, float top)
