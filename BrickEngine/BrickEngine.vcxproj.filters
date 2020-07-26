@@ -7,6 +7,9 @@
     <Filter Include="src\BrickEngine">
       <UniqueIdentifier>{1D2BEB2B-89B6-58F0-92C7-DBE4FED1B4F0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\BrickEngine\Core">
+      <UniqueIdentifier>{95C9BCEB-8158-46B5-2A77-5AB016E5565B}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\BrickEngine\Events">
       <UniqueIdentifier>{619437D3-4D8E-6025-36FB-F6352294C691}</UniqueIdentifier>
     </Filter>
@@ -16,8 +19,14 @@
     <Filter Include="src\BrickEngine\Platform">
       <UniqueIdentifier>{11388C9B-FD5C-DB1B-26A8-C0AB122CDA39}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\BrickEngine\Platform\OpenGL">
+      <UniqueIdentifier>{2504599F-91E7-67DF-9AEA-951B064D2E30}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\BrickEngine\Platform\Windows">
       <UniqueIdentifier>{4B6395E2-37B4-8024-6018-6FE64CC8138E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\BrickEngine\Renderer">
+      <UniqueIdentifier>{633F6976-4F64-B8F6-78AF-9D866433B714}</UniqueIdentifier>
     </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
@@ -40,6 +49,9 @@
     <Filter Include="vendor\glm\glm\gtx">
       <UniqueIdentifier>{B3A6A76B-9F8A-68C1-08EB-6214F4ED5243}</UniqueIdentifier>
     </Filter>
+    <Filter Include="vendor\stb_image">
+      <UniqueIdentifier>{0DA0BA59-F998-D9AB-22CB-BE300E23B9B7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BrickEngine.h">
@@ -50,6 +62,9 @@
     </ClInclude>
     <ClInclude Include="src\BrickEngine\Core.h">
       <Filter>src\BrickEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BrickEngine\Core\Timestep.h">
+      <Filter>src\BrickEngine\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\BrickEngine\EntryPoint.h">
       <Filter>src\BrickEngine</Filter>
@@ -87,11 +102,56 @@
     <ClInclude Include="src\BrickEngine\MouseButtonCodes.h">
       <Filter>src\BrickEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLBuffer.h">
+      <Filter>src\BrickEngine\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\BrickEngine\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLRendererAPI.h">
+      <Filter>src\BrickEngine\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLShader.h">
+      <Filter>src\BrickEngine\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLTexture.h">
+      <Filter>src\BrickEngine\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLVertexArray.h">
+      <Filter>src\BrickEngine\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\BrickEngine\Platform\Windows\WindowsInput.h">
       <Filter>src\BrickEngine\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\BrickEngine\Platform\Windows\WindowsWindow.h">
       <Filter>src\BrickEngine\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BrickEngine\Renderer\Buffer.h">
+      <Filter>src\BrickEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BrickEngine\Renderer\GraphicsContext.h">
+      <Filter>src\BrickEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BrickEngine\Renderer\OrthographicCamera.h">
+      <Filter>src\BrickEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BrickEngine\Renderer\RenderCommand.h">
+      <Filter>src\BrickEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BrickEngine\Renderer\Renderer.h">
+      <Filter>src\BrickEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BrickEngine\Renderer\RendererAPI.h">
+      <Filter>src\BrickEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BrickEngine\Renderer\Shader.h">
+      <Filter>src\BrickEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BrickEngine\Renderer\Texture.h">
+      <Filter>src\BrickEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BrickEngine\Renderer\VertexArray.h">
+      <Filter>src\BrickEngine\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\BrickEngine\Window.h">
       <Filter>src\BrickEngine</Filter>
@@ -1323,20 +1383,9 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\BrickEngine\Renderer\GraphicsContext.h" />
-    <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLContext.h" />
-    <ClInclude Include="src\BrickEngine\Renderer\Shader.h" />
-    <ClInclude Include="src\BrickEngine\Renderer\Buffer.h" />
-    <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLBuffer.h" />
-    <ClInclude Include="src\BrickEngine\Renderer\Renderer.h" />
-    <ClInclude Include="src\BrickEngine\Renderer\VertexArray.h" />
-    <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLVertexArray.h" />
-    <ClInclude Include="src\BrickEngine\Renderer\RendererAPI.h" />
-    <ClInclude Include="src\BrickEngine\Renderer\RenderCommand.h" />
-    <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLRendererAPI.h" />
-    <ClInclude Include="src\BrickEngine\Renderer\OrthographicCamera.h" />
-    <ClInclude Include="src\BrickEngine\Core\Timestep.h" />
-    <ClInclude Include="src\BrickEngine\Platform\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="vendor\stb_image\stb_image.h">
+      <Filter>vendor\stb_image</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BrickEngine\Application.cpp">
@@ -1357,26 +1406,59 @@
     <ClCompile Include="src\BrickEngine\Log.cpp">
       <Filter>src\BrickEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLBuffer.cpp">
+      <Filter>src\BrickEngine\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\BrickEngine\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>src\BrickEngine\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>src\BrickEngine\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLTexture.cpp">
+      <Filter>src\BrickEngine\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLVertexArray.cpp">
+      <Filter>src\BrickEngine\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\BrickEngine\Platform\Windows\WindowsInput.cpp">
       <Filter>src\BrickEngine\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\BrickEngine\Platform\Windows\WindowsWindow.cpp">
       <Filter>src\BrickEngine\Platform\Windows</Filter>
     </ClCompile>
+    <ClCompile Include="src\BrickEngine\Renderer\Buffer.cpp">
+      <Filter>src\BrickEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BrickEngine\Renderer\OrthographicCamera.cpp">
+      <Filter>src\BrickEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BrickEngine\Renderer\RenderCommand.cpp">
+      <Filter>src\BrickEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BrickEngine\Renderer\Renderer.cpp">
+      <Filter>src\BrickEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BrickEngine\Renderer\RendererAPI.cpp">
+      <Filter>src\BrickEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BrickEngine\Renderer\Shader.cpp">
+      <Filter>src\BrickEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BrickEngine\Renderer\Texture.cpp">
+      <Filter>src\BrickEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BrickEngine\Renderer\VertexArray.cpp">
+      <Filter>src\BrickEngine\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\brickenginepch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLContext.cpp" />
-    <ClCompile Include="src\BrickEngine\Renderer\Shader.cpp" />
-    <ClCompile Include="src\BrickEngine\Renderer\Buffer.cpp" />
-    <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLBuffer.cpp" />
-    <ClCompile Include="src\BrickEngine\Renderer\Renderer.cpp" />
-    <ClCompile Include="src\BrickEngine\Renderer\VertexArray.cpp" />
-    <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLVertexArray.cpp" />
-    <ClCompile Include="src\BrickEngine\Renderer\RendererAPI.cpp" />
-    <ClCompile Include="src\BrickEngine\Renderer\RenderCommand.cpp" />
-    <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLRendererAPI.cpp" />
-    <ClCompile Include="src\BrickEngine\Renderer\OrthographicCamera.cpp" />
-    <ClCompile Include="src\BrickEngine\Platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="vendor\stb_image\stb_image.cpp">
+      <Filter>vendor\stb_image</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

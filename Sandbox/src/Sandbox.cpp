@@ -18,7 +18,7 @@ public:
 			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
-		std::shared_ptr<BrickEngine::VertexBuffer> vertexBuffer;
+		BrickEngine::Ref<BrickEngine::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(BrickEngine::VertexBuffer::Create(vertices, sizeof(vertices)));
 
 		BrickEngine::BufferLayout layout = {
@@ -30,29 +30,30 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		std::shared_ptr<BrickEngine::IndexBuffer> indexBuffer;
+		BrickEngine::Ref<BrickEngine::IndexBuffer> indexBuffer;
 		indexBuffer.reset(BrickEngine::IndexBuffer::Create(indices, 3));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
 		m_SquareVA.reset(BrickEngine::VertexArray::Create());
 
-		float squareVertices[3 * 4] = {
-			-0.5f, -0.5f, 0.0f,
-			 0.5f, -0.5f, 0.0f,
-			 0.5f,  0.5f, 0.0f,
-			-0.5f,  0.5f, 0.0f
+		float squareVertices[5 * 4] = {
+			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
+			 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+			 0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
-		std::shared_ptr<BrickEngine::VertexBuffer> squareVB;
+		BrickEngine::Ref<BrickEngine::VertexBuffer> squareVB;
 		squareVB.reset(BrickEngine::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 
 		squareVB->SetLayout({
-			{ BrickEngine::ShaderDataType::Float3, "a_Position" }
+			{ BrickEngine::ShaderDataType::Float3, "a_Position" },
+			{ BrickEngine::ShaderDataType::Float2, "a_TexCoord" }
 		});
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		std::shared_ptr<BrickEngine::IndexBuffer> squareIB;
+		BrickEngine::Ref<BrickEngine::IndexBuffer> squareIB;
 		squareIB.reset(BrickEngine::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
@@ -117,6 +118,48 @@ public:
 		)";
 
 		m_FlatColorShader.reset(BrickEngine::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+
+		std::string textureShaderVertexSrc = R"(
+			#version 330 core
+			
+			layout(location = 0) in vec3 a_Position;
+			layout(location = 1) in vec2 a_TexCoord;
+			
+			uniform mat4 u_ViewProjection;
+			uniform mat4 u_Transform;
+			
+			out vec2 v_TexCoord;
+			
+			void main()
+			{
+				v_TexCoord = a_TexCoord;
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);
+			}
+		)";
+
+		std::string textureShaderFragmentSrc = R"(
+			#version 330 core
+			
+			layout(location = 0) out vec4 color;
+			
+			uniform sampler2D u_Texture;
+			
+			in vec2 v_TexCoord;
+			
+			void main()
+			{
+				color = vec4(v_TexCoord, 0.0, 1.0);
+				color = texture(u_Texture, v_TexCoord);
+			}
+		)";
+
+		m_TextureShader.reset(BrickEngine::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
+
+		m_Texture = BrickEngine::Texture2D::Create("assets/textures/Checkerboard.png");
+		m_ChernoLogoTexture = BrickEngine::Texture2D::Create("assets/textures/ChernoLogo.png");
+
+		std::dynamic_pointer_cast<BrickEngine::OpenGLShader>(m_TextureShader)->Bind();
+		std::dynamic_pointer_cast<BrickEngine::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	virtual void OnUpdate(BrickEngine::Timestep ts) override
@@ -143,7 +186,7 @@ public:
 		std::dynamic_pointer_cast<BrickEngine::OpenGLShader>(m_FlatColorShader)->Bind();
 		std::dynamic_pointer_cast<BrickEngine::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
 
-		for (int x = 0; x < 20; x++)
+		for (int x = 0; x < 20; x++)	
 		{
 			for (int y = 0; y < 20; y++)
 			{
@@ -153,7 +196,14 @@ public:
 			}
 		}
 
-		BrickEngine::Renderer::Submit(m_Shader, m_VertexArray);
+		m_Texture->Bind();
+		BrickEngine::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+
+		m_ChernoLogoTexture->Bind();
+		BrickEngine::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+
+		// Triangle
+		// BrickEngine::Renderer::Submit(m_Shader, m_VertexArray);
 
 		BrickEngine::Renderer::EndScene();
 	}
@@ -169,11 +219,13 @@ public:
 	{
 	}
 private:
-	std::shared_ptr<BrickEngine::Shader> m_Shader;
-	std::shared_ptr<BrickEngine::VertexArray> m_VertexArray;
+	BrickEngine::Ref<BrickEngine::Shader> m_Shader;
+	BrickEngine::Ref<BrickEngine::VertexArray> m_VertexArray;
 
-	std::shared_ptr<BrickEngine::Shader> m_FlatColorShader;
-	std::shared_ptr<BrickEngine::VertexArray> m_SquareVA;
+	BrickEngine::Ref<BrickEngine::Shader> m_FlatColorShader, m_TextureShader;
+	BrickEngine::Ref<BrickEngine::VertexArray> m_SquareVA;
+
+	BrickEngine::Ref<BrickEngine::Texture2D> m_Texture, m_ChernoLogoTexture;
 
 	BrickEngine::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;

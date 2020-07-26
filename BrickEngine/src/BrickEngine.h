@@ -17,8 +17,9 @@
 #include "BrickEngine/Renderer/Renderer.h"
 #include "BrickEngine/Renderer/RenderCommand.h"
 
-#include "BrickEngine/Renderer/Shader.h"
 #include "BrickEngine/Renderer/Buffer.h"
+#include "BrickEngine/Renderer/Shader.h"
+#include "BrickEngine/Renderer/Texture.h"
 #include "BrickEngine/Renderer/VertexArray.h"
 
 #include "BrickEngine/Renderer/OrthographicCamera.h"
