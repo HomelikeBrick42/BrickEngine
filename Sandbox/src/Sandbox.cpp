@@ -88,7 +88,7 @@ public:
 			}
 		)";
 
-		m_Shader.reset(BrickEngine::Shader::Create(vertexSrc, fragmentSrc));
+		m_Shader = BrickEngine::Shader::Create("VertexPosColor", vertexSrc, fragmentSrc);
 
 		std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
@@ -117,15 +117,15 @@ public:
 			}
 		)";
 
-		m_FlatColorShader.reset(BrickEngine::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+		m_FlatColorShader = BrickEngine::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
-		m_TextureShader.reset(BrickEngine::Shader::Create("assets/shaders/Texture.glsl"));
+		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 
 		m_Texture = BrickEngine::Texture2D::Create("assets/textures/Checkerboard.png");
 		m_ChernoLogoTexture = BrickEngine::Texture2D::Create("assets/textures/ChernoLogo.png");
 
-		std::dynamic_pointer_cast<BrickEngine::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<BrickEngine::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+		std::dynamic_pointer_cast<BrickEngine::OpenGLShader>(textureShader)->Bind();
+		std::dynamic_pointer_cast<BrickEngine::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	virtual void OnUpdate(BrickEngine::Timestep ts) override
@@ -162,11 +162,13 @@ public:
 			}
 		}
 
+		auto textureShader = m_ShaderLibrary.Get("Texture");
+
 		m_Texture->Bind();
-		BrickEngine::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		BrickEngine::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		m_ChernoLogoTexture->Bind();
-		BrickEngine::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		BrickEngine::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		// Triangle
 		// BrickEngine::Renderer::Submit(m_Shader, m_VertexArray);
@@ -185,10 +187,11 @@ public:
 	{
 	}
 private:
+	BrickEngine::ShaderLibrary m_ShaderLibrary;
 	BrickEngine::Ref<BrickEngine::Shader> m_Shader;
 	BrickEngine::Ref<BrickEngine::VertexArray> m_VertexArray;
 
-	BrickEngine::Ref<BrickEngine::Shader> m_FlatColorShader, m_TextureShader;
+	BrickEngine::Ref<BrickEngine::Shader> m_FlatColorShader;
 	BrickEngine::Ref<BrickEngine::VertexArray> m_SquareVA;
 
 	BrickEngine::Ref<BrickEngine::Texture2D> m_Texture, m_ChernoLogoTexture;
